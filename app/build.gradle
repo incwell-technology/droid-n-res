@@ -40,6 +40,12 @@ dependencies {
     implementation "org.koin:koin-android-viewmodel:2.0.1"
     // Koin AndroidX Experimental features
     implementation "org.koin:koin-android-ext:2.0.1"
+    
+    //mobile vision
+    implementation 'com.google.android.gms:play-services-vision:17.0.2'
+
+    //permission
+    implementation 'com.karumi:dexter:5.0.0'
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
