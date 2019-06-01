@@ -734,6 +734,8 @@ public class CameraSource {
         }
     }
 
+
+
     /**
      * Opens the camera and applies the user settings.
      *
