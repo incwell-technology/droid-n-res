@@ -4,6 +4,7 @@
 
     <uses-feature android:name="android.hardware.camera"/>
 
+    <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.CAMERA"/>
 
     <application
@@ -13,16 +14,21 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
+        <activity android:name=".ScanActivity">
+        </activity>
         <activity android:name=".views.CategoryActivity">
         </activity>
-        <activity android:name=".view.barcode.MainActivity">
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".view.barcode.BarcodeCaptureActivity"/>
+
+        <meta-data
+                android:name="com.google.android.gms.vision.DEPENDENCIES"
+                android:value="barcode"/>
     </application>
 
 </manifest>
