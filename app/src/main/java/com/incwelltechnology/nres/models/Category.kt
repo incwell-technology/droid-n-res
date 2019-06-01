@@ -1,3 +1,3 @@
 package com.incwelltechnology.nres.models
 
-data class Category(val success:Boolean,val data:CategoryObject)
+data class Category(var name: String, var description: String)

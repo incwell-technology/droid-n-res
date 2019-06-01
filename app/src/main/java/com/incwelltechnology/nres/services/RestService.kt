@@ -1,15 +1,15 @@
 package com.incwelltechnology.nres.services
 
 import com.incwelltechnology.nres.models.Category
-import retrofit2.Call
+import kotlinx.coroutines.Deferred
 import retrofit2.http.GET
 
 
-interface ServiceApi {
+interface RestService {
     @GET("categories")
-    fun getCategory(): Call<Category>
+    fun getCategoryAsync(): Deferred<List<Category>>
 
     @GET
-    fun getFood(): Call<Category>
+    fun getFood(): Deferred<Category>
 
 }
