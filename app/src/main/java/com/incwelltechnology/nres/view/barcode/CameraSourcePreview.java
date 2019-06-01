@@ -76,6 +76,7 @@ public class CameraSourcePreview extends ViewGroup {
         }
     }
 
+
     public void release() {
         if (mCameraSource != null) {
             mCameraSource.release();
