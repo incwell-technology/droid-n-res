@@ -7,7 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.android.gms.common.api.CommonStatusCodes
 import com.google.android.gms.vision.barcode.Barcode
 import com.incwelltechnology.nres.R
-import com.incwelltechnology.nres.views.CategoryActivity
+import com.incwelltechnology.nres.view.category.CategoryActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -20,6 +20,8 @@ class MainActivity : AppCompatActivity() {
 
         read_barcode.setOnClickListener {
             val intent = Intent(this, BarcodeCaptureActivity::class.java)
+            intent.putExtra(BarcodeCaptureActivity.AutoFocus, auto_focus.isChecked)
+            intent.putExtra(BarcodeCaptureActivity.UseFlash, use_flash.isChecked)
             startActivityForResult(intent, RC_BARCODE_CAPTURE)
         }
     }
@@ -33,9 +35,7 @@ class MainActivity : AppCompatActivity() {
                     barcode_value!!.text = barcode.displayValue
                     Log.d(TAG, "Barcode read: " + barcode.displayValue)
 
-                    val intent=Intent(this, CategoryActivity::class.java)
-                    intent.putExtra("data", barcode.displayValue)
-                    startActivity(intent)
+                    CategoryActivity.start(this, barcode.displayValue)
 
                 } else {
                     status_message!!.setText(R.string.barcode_failure)
